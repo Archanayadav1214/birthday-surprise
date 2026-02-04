@@ -104,6 +104,91 @@ img{
   font-size:1.15em;
   line-height:1.7;
 }
+
+/* PAGE TRANSITION */
+.section{
+  animation: fadeIn 1.2s ease forwards;
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:scale(0.95);}
+  to{opacity:1;transform:scale(1);}
+}
+
+/* HEART FLOAT */
+.heart{
+  position:fixed;
+  bottom:-10px;
+  font-size:18px;
+  animation: floatUp 6s linear infinite;
+  opacity:0.8;
+}
+@keyframes floatUp{
+  to{transform:translateY(-110vh);opacity:0;}
+}
+
+/* HEARTBEAT */
+.heartbeat{
+  animation: beat 1.4s infinite;
+}
+@keyframes beat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+}
+
+/* STARS */
+.star{
+  position:fixed;
+  width:2px;
+  height:2px;
+  background:white;
+  opacity:0.8;
+  animation: twinkle 2s infinite alternate;
+}
+@keyframes twinkle{
+  from{opacity:0.3;}
+  to{opacity:1;}
+}
+
+/* CINEMATIC ENDING */
+.cinematic{
+  background:radial-gradient(circle at top,#1a0033,#000);
+  color:white;
+}
+
+.love-text{
+  font-size:3em;
+  margin-bottom:15px;
+  animation: glow 2.5s ease-in-out infinite alternate,
+             fadeUp 2s ease forwards;
+}
+
+.love-sub{
+  font-size:1.3em;
+  opacity:0;
+  animation: fadeUp 2s ease forwards;
+  animation-delay:1.2s;
+}
+
+.love-small{
+  margin-top:18px;
+  font-size:1em;
+  opacity:0;
+  animation: fadeUp 2s ease forwards;
+  animation-delay:2.2s;
+}
+
+/* GLOW */
+ @keyframes glow{
+  from{text-shadow:0 0 10px #ff4da6;}
+  to{text-shadow:0 0 25px #ff99cc;}
+}
+
+/* FADE UP */
+ @keyframes fadeUp{
+  from{opacity:0;transform:translateY(25px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
 </style>
 </head>
 
@@ -111,13 +196,14 @@ img{
 
 <!-- MUSIC -->
 <audio id="music" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">
 </audio>
+
 
 <!-- PAGE 1 -->
 <div class="section active">
   <div class="card">
-    <h1>🎉 Happy Birthday 🎉</h1>
+    <h1 class="heartbeat">🎉 Happy Birthday 🎉 </h1>
     <button onclick="next()">Open Your Surprise 🎁</button>
   </div>
 </div>
@@ -125,9 +211,9 @@ img{
 <!-- PAGE 2 -->
 <div class="section message">
   <h2>I wanted to make something special for you 💖</h2>
-  <h2><p>Only for you 😁🙈</p></h2>
+  <h2><p>Only for you mere Jaanuu 😁🙈</p></h2>
   <br><br>
-  <button onclick="next()">Continue ✨</button>
+  <button onclick="next()">Next 💕</button>
 </div>
 
 <!-- PAGE 3 -->
@@ -139,18 +225,18 @@ img{
 
 <!-- PAGE 4 -->
 <div class="section message">
-  <img src="Image 2.jpeg">
-  <h2>Hayeee.... 😍❤️</h2>
+  <img src="c:\Users\archana\OneDrive\Documents\Project making\Gossip App\New folder (2)\image.jpg.jpeg">
+  <h2>Hayeee....Cutie 😍❤️</h2>
   
   <button onclick="next()">Next 😘</button>
 </div>
 
 <!-- PAGE 5 -->
 <div class="section message">
-  <h1>🎂 Happy Birthday My Love 🎂</h1>
+  <h1>🥳 Happy Birthday My Love 🥳</h1>
   <img src="cake.avif">
   <br><br>
-  <button onclick="next()">Next 💕</button>
+  <button onclick="next()">Next 🎉</button>
 </div>
 
 <!-- PAGE 6 -->
@@ -170,19 +256,25 @@ img{
 
 <!-- PAGE 8 -->
 <div class="section message">
-  <img src="Image 3.jpeg">
-  <p>You & Me 🤍</p>
-  <p>Always & Forever 💍</p>
-  <br><br>
+  <img src="c:\Users\archana\OneDrive\Documents\Project making\Gossip App\New folder (2)\Image 2.jpeg">
+  <p>You & Me ❤️</p>
+  <p>Always & Forever 😍 </p>
   <button onclick="next()">End is not here😄</button>
 </div>
 
 <!-- PAGE 9 -->
 <div class="section message">
-  <h1>Will you be mine forever?</h1>
-  <br><br>
-  <button onclick="yes()">YES ❤️</button>
+  <img src="c:\Users\archana\OneDrive\Documents\Project making\Gossip App\New folder (2)\Image 3.jpeg">
+  <h1>Togetherness 🤗</h1>
 </div>
+
+<!-- PAGE 10: CINEMATIC ENDING -->
+<div class="section cinematic">
+  <h1 class="love-text">I Love You ❤️</h1>
+  <p class="love-sub">Forever & Always 🌙✨</p>
+  <p class="love-small">This story ends here…<br>but our journey never will 💖</p>
+</div>
+
 
 <script>
 let current=0;
@@ -200,9 +292,22 @@ function next(){
 }
 
 /* TYPING */
-const text=`Every moment with you feels like a beautiful dream.
-You are my heart, my peace, my happiness.
-I love you more than words can ever say 💖`;
+const text=`From the moment you entered my life,
+ordinary days turned into something magical.
+
+Your smile feels like home,
+your presence feels like peace.
+
+No matter where life takes us,
+I want every chapter to have YOU in it.
+
+Today is your birthday…
+but honestly, every day with you
+feels like a celebration 
+I LOVE YOU 🤗❤️ `;
+
+
+
 
 let i=0;
 function startTyping(){
@@ -216,12 +321,9 @@ function startTyping(){
   },45);
 }
 
-/* YES EFFECT */
-function yes(){
-  alert("He said YES 😍💖");
   confetti();
   fireworks();
-}
+
 
 /* CONFETTI */
 function confetti(){
@@ -247,7 +349,33 @@ function fireworks(){
     setTimeout(()=>f.remove(),1200);
   }
 }
+
+/* FLOATING HEARTS */
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💖";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(Math.random()*3+4)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7000);
+},600);
+
+/* STARS */
+for(let i=0;i<80;i++){
+  const s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*100+"vh";
+  s.style.animationDelay=Math.random()*2+"s";
+  document.body.appendChild(s);
+}
+
+
+
 </script>
 
 </body>
 </html>
+
+
